@@ -4,10 +4,9 @@ import EmptyCart from "./EmptyCart"
 import { ProductConsumer} from '../../Context'
 import CartList from "./CartList"
 import CartTotals from "./CartTotals"
-export default function Cart(){
+export default function Cart(props){
     return(
         <section>
-            
             <ProductConsumer>
                     {value => {
                         if(value.cart.length == 0){
@@ -18,7 +17,7 @@ export default function Cart(){
                             <Title name="your" title="cart"/>
                             <CartColumns/>
                             <CartList value={value}/>
-                            <CartTotals value={value}/>
+                            <CartTotals value={value} history={props.history}/>
                         </>
                         )
                     }}
